@@ -1,0 +1,25 @@
+image:
+  repository: ghcr.io/stordco/sre-technical-challenge
+  tag: arm64
+  pullPolicy: IfNotPresent
+
+containerPort: 4000
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 80
+
+env:
+  DATABASE_URL: postgresql://postgres:password@sre-db-postgresql/sre-technical-challenge
+  POOL_SIZE: "10"
+  SECRET_KEY_BASE: LKJSF987532DLKJDLlkjdslkgjiosdogu==1)(*&^*&^)1h5856*45Kssdlkjkld
+  PHX_HOST: localhost
+  PORT: "4000"
+
+serviceAccountName: default
+
+migrations:
+  backoffLimit: 4
+  ttlSecondsAfterFinished: 300
